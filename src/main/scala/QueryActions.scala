@@ -15,9 +15,10 @@ object QueryActions extends App {
   }
   val dict = TableQuery[Dict]
 
-  val db = Database.forConfig("h2mem1")
-  try {
+//  val db = Database.forConfig("h2mem1")
+  val db = Database.forURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", driver="org.h2.Driver")
 
+  try {
     //#upTo
     // Define a pre-compiled parameterized query for reading all key/value
     // pairs up to a given key.

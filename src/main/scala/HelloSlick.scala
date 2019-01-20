@@ -6,7 +6,8 @@ import slick.jdbc.H2Profile.api._
 
 // The main application
 object HelloSlick extends App {
-  val db = Database.forConfig("h2mem1")
+//  val db = Database.forConfig("h2mem1")
+  val db = Database.forURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", driver="org.h2.Driver")
 
   try {
     // The query interface for the Suppliers table
