@@ -9,7 +9,7 @@ object CaseClassMapping extends App {
   val users = TableQuery[Users]
 
 //  val db = Database.forConfig("h2mem1")
-  val db = Database.forURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", driver="org.h2.Driver")
+  val db: Database = Database.forURL("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1", driver="org.h2.Driver")
   try {
     Await.result(db.run(DBIO.seq(
       // create the schema
